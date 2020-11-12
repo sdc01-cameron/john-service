@@ -1,17 +1,23 @@
 {
-  "name": "",
-  "version": "",
+  "name": "deb-service",
+  "version": "1.0",
   "description": "",
-  "author": "",
-  "license": "",
+  "author": "Deb Johnson",
+  "license": "ISC",
   "engines": {
     "node": ">=6.13.0"
   },
-  "scripts": {
-  },
+  "scripts": {},
   "dependencies": {
+    "express": "^4.17.1",
+    "mongodb": "^3.6.3",
+    "mongoose": "^5.10.13",
+    "webpack": "^5.4.0"
   },
   "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "faker": "^5.1.0",
+    "jest": "^26.6.3",
+    "webpack-dev": "^1.1.1"
   }
 }
