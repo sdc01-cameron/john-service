@@ -2,12 +2,14 @@
   "name": "deb-service",
   "version": "1.0.0",
   "description": "",
+  "main": "app.js",
   "author": "Deb Johnson",
   "license": "ISC",
   "engines": {
     "node": ">=6.13.0"
   },
   "scripts": {
+    "start": "node server/app.js",
     "build": "webpack -d --watch",
     "seed": "node server/seeds.js"
   },

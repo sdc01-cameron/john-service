@@ -1,13 +1,14 @@
 const path = require('path');
+var SRC_DIR = path.join(__dirname, '/client/src');
 
 module.exports = {
-  entry: './server/app.js',
+  entry: `${SRC_DIR}/index.jsx`,
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'public')
   },
-  target: 'node',
   watch: true,
+  target: 'node',
   module: {
     rules: [
       {
