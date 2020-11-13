@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const port = 3005;
 
+app.use('/', express.static('public'));
+
 app.get('/api/products/:id/product', (req, res) => {
   res.send('Product info here');
 });
