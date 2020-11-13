@@ -1,4 +1,5 @@
 const faker = require('faker');
+const mongoose = require('mongoose');
 const Product = require('../server/database').Product;
 
 const makeProducts = () => {
@@ -21,6 +22,9 @@ const makeProducts = () => {
         console.log('Error: ', err);
       }
     });
+    if (i === 100) {
+      mongoose.disconnect();
+    }
   }
 
   console.log('All documents were created!')
