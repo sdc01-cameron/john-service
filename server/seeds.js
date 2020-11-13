@@ -1,12 +1,12 @@
 const faker = require('faker');
-const Product = require('../server/database');
+const Product = require('../server/database').Product;
 
 const makeProducts = () => {
 
   for (let i = 0; i < 100; i++) {
     let product = {};
     product.name = faker.commerce.productName();
-    product.price = faker.commerce.product();
+    product.price = faker.commerce.price();
     product.prime = true;
     product.returnable = false;
     product.ingredients = faker.commerce.productMaterial();
@@ -16,16 +16,15 @@ const makeProducts = () => {
     product.about = faker.commerce.productDescription();
     product.ratings = [{username: faker.name.firstName(), rating: faker.random.number(), rating_date: faker.date.past()}];
 
-    Product.create(product, (err, doc) {
+    Product.create(product, (err, doc) => {
       if (err) {
         console.log('Error: ', err);
       }
-      console.log('Document was inserted');
     });
   }
 
-
+  console.log('All documents were created!')
 };
-
+makeProducts();
 
 exports.makeProducts = makeProducts;
