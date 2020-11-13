@@ -11,6 +11,10 @@
     "build": "webpack -d --watch",
     "seed": "node server/seeds.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/House-Bezos/deb-service.git"
+  },
   "dependencies": {
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
@@ -19,6 +23,8 @@
     "express": "^4.17.1",
     "mongodb": "^3.6.3",
     "mongoose": "^5.10.13",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "webpack": "^4.44.2",
     "webpack-cli": "^4.2.0"
   },
