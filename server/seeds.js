@@ -1,8 +1,7 @@
 const faker = require('faker');
-const db = require('../server/database');
+const Product = require('../server/database');
 
 const makeProducts = () => {
-  let products = [];
 
   for (let i = 0; i < 100; i++) {
     let product = {};
@@ -17,15 +16,14 @@ const makeProducts = () => {
     product.about = faker.commerce.productDescription();
     product.ratings = [{username: faker.name.firstName(), rating: faker.random.number(), rating_date: faker.date.past()}];
 
-    products.push(product);
+    Product.create(product, (err, doc) {
+      if (err) {
+        console.log('Error: ', err);
+      }
+      console.log('Document was inserted');
+    });
   }
 
-  db.insertMany(products, (err, docs) {
-    if (err) {
-      console.log('Error: ', err);
-    }
-    console.log('Documents were inserted');
-  });
 
 };
 
