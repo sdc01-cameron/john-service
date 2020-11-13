@@ -15,7 +15,7 @@ class App extends React.Component {
 
   componentDidMount() {
     let randomNum = Math.floor(Math.random() * 100) + 1;
-    axios.get(`${URL}${randomNum}/product`)
+    axios.get(`${URL}${randomNum}`)
       .then(res => {
         console.log(res.data);
         const product = res.data;

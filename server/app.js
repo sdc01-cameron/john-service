@@ -8,7 +8,7 @@ app.use(express.json());
 app.use(express.urlencoded());
 app.use('/', express.static('public'));
 
-app.get('/api/products/:id/product', (req, res) => {
+app.get('/api/products/:id', (req, res) => {
   Product.find((err, products) => {
     if (err) {
       console.log('Error: ', err);
