@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 
+import Product from './Product.jsx';
+
 const URL = 'http://localhost:3005/api/products/';
 
 class App extends React.Component {
@@ -29,7 +31,7 @@ class App extends React.Component {
     return (
       <div>
         <h1>Product goes here!</h1>
-        <p>{this.state.product.name}</p>
+        <Product product={this.state.product} />
       </div>
     )
   }
