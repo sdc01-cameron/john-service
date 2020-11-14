@@ -5,11 +5,15 @@ function Product({product}) {
   return (
     <div>
       <h3>{product.name}</h3>
-      <h6>Prime: {product.prime}</h6>
-      <p>{product.flavor}</p>
-      <p>${product.price}</p>
-      <p>{product.ingredients}</p>
-      <p>{product.about}</p>
+      <p>Ratings:</p>
+      {console.log(product.ratings)}
+      <h4>Prime: {product.prime ? 'Yes' : 'No'}</h4>
+      <p>Returnable: {product.returnable ? 'Yes' : 'No'}</p>
+      <p>Flavor: {product.flavor}</p>
+      <p>Price: ${product.price}</p>
+      <p>Ingredients: {product.ingredients}</p>
+      <p>About: {product.about}</p>
+      <p>Sensitivity: {product.sensitivity}</p>
     </div>
   )
 }
