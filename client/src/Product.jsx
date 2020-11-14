@@ -5,8 +5,7 @@ function Product({product}) {
   return (
     <div>
       <h3>{product.name}</h3>
-      <p>Ratings:</p>
-      {console.log(product.ratings)}
+      <p>Ratings Average:</p>
       <h4>Prime: {product.prime ? 'Yes' : 'No'}</h4>
       <p>Returnable: {product.returnable ? 'Yes' : 'No'}</p>
       <p>Flavor: {product.flavor}</p>
