@@ -1,11 +1,12 @@
 const faker = require('faker');
 const mongoose = require('mongoose');
-const Product = require('../server/database').Product;
+const {Product} = require('../server/database');
 
 const makeProducts = () => {
 
   for (let i = 0; i < 100; i++) {
     let product = {};
+    product._id = i;
     product.name = faker.commerce.productName();
     product.price = faker.commerce.price();
     product.prime = true;
@@ -15,7 +16,8 @@ const makeProducts = () => {
     product.sensitivity = faker.commerce.productMaterial();
     product.ingredient_info = faker.commerce.productDescription();
     product.about = faker.commerce.productDescription();
-    product.ratings = [{username: faker.name.firstName(), rating: faker.random.number(), rating_date: faker.date.past()}];
+    let avg = Math.floor(Math.random() * 5) + 1;
+    product.ratings_avg = avg;
 
     Product.create(product, (err, doc) => {
       if (err) {
