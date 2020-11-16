@@ -9,12 +9,12 @@ app.use(express.urlencoded());
 app.use('/', express.static('public'));
 
 app.get('/api/products/:id', (req, res) => {
-  Product.find((err, products) => {
+  Product.findById(req.params.id, (err, product) => {
     if (err) {
       console.log('Error: ', err);
       res.send(404);
     } else {
-      res.send(products[req.params.id]);
+      res.send(product);
     }
   })
 });
