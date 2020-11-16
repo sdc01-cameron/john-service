@@ -29,7 +29,6 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>Product goes here!</h1>
         <Product product={this.state.product} />
       </div>
     )
