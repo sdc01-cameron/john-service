@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import Tile from './Tile.jsx';
+
 function Product({product}) {
   return (
     <div>
@@ -9,6 +11,12 @@ function Product({product}) {
       <h4>Prime: {product.prime ? 'Yes' : 'No'}</h4>
       <p>Returnable: {product.returnable ? 'Yes' : 'No'}</p>
       <p>Flavor: {product.flavor}</p>
+      <div>
+        <Tile />
+        <Tile />
+        <Tile />
+        <Tile />
+      </div>
       <p>Price: ${product.price}</p>
       <p>Ingredients: {product.ingredients}</p>
       <p>About: {product.about}</p>
