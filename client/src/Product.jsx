@@ -21,6 +21,8 @@ function Product({product}) {
       <div>
         <h1>{product.name}</h1>
         <p>Ratings Average: {product.ratings_avg}</p>
+        <hr></hr>
+        <p>Price: <span style={{ color: 'red' }}>${product.price}</span></p>
         <h4>Prime: {product.prime ? 'Yes' : 'No'}</h4>
         <p>Returnable: {product.returnable ? 'Yes' : 'No'}</p>
         <p>Flavor: {product.flavor}</p>
@@ -32,7 +34,6 @@ function Product({product}) {
             <Tile />
           </TileWrapper>
         </div>
-        <p>Price: ${product.price}</p>
         <p>Ingredients: {product.ingredients}</p>
         <p>Sensitivity: {product.sensitivity}</p>
         <p>About: {product.about}</p>
