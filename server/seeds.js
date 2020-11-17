@@ -14,6 +14,7 @@ const makeProducts = () => {
     product.ingredients = faker.commerce.productMaterial();
     product.flavor = faker.commerce.color();
     product.sensitivity = faker.commerce.productMaterial();
+    product.brand = faker.company.companyName();
     product.ingredient_info = faker.commerce.productDescription();
     product.about = faker.commerce.productDescription();
     let avg = Math.floor(Math.random() * 5) + 1;

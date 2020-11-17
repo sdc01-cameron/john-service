@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/productDB', {useNewUrlParser: true});
+mongoose.connect('mongodb://localhost/productsDB', {useNewUrlParser: true});
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -17,7 +17,7 @@ const productSchema = new mongoose.Schema({
   ingredients: String,
   brand: String,
   sensitivity: String,
-  ingredient_information: String,
+  ingredient_info: String,
   about: String,
   ratings_avg: Number
 })
