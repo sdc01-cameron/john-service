@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 
 import styled from 'styled-components';
+import primeLogo from '../../public/images/primeLogo_621x260.png';
 
 const URL = 'http://localhost:3005/api/products/';
 
@@ -37,8 +38,8 @@ class Tile extends React.Component {
     return (
       <Item>
         <h3>{product.name}</h3>
-        <p>Price: ${product.price}</p>
-        <h4>Prime: {product.prime ? 'Yes' : 'No'}</h4>
+        <p style={{ color: 'red' }}>${product.price}</p>
+        <h4>{product.prime ? <img alt="prime" src={primeLogo} style={{ height: '25px', width: '57px'}}/> : 'Not Prime'}</h4>
       </Item>
     )
   }

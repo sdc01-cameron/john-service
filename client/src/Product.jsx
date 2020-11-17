@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
+import primeLogo from '../../public/images/primeLogo_621x260.png';
 
 import Tile from './Tile.jsx';
 
@@ -16,6 +17,7 @@ const TileWrapper = styled.div`
 `;
 
 function Product({product}) {
+  console.log(product);
   return (
     <Wrapper>
       <div>
@@ -23,9 +25,9 @@ function Product({product}) {
         <p>Ratings Average: {product.ratings_avg}</p>
         <hr></hr>
         <p>Price: <span style={{ color: 'red' }}>${product.price}</span></p>
-        <h4>Prime: {product.prime ? 'Yes' : 'No'}</h4>
-        <p>Returnable: {product.returnable ? 'Yes' : 'No'}</p>
-        <p>Flavor: {product.flavor}</p>
+        <h4>{product.prime ? <img alt="prime" src={primeLogo} style={{ height: '25px', width: '57px'}}/> : 'Not Prime'}</h4>
+        <p>This item is {product.returnable ? 'returnable' : 'non-returnable'} </p>
+        <p>Flavor: <b>{product.flavor}</b></p>
         <div>
           <TileWrapper>
             <Tile />
@@ -34,9 +36,12 @@ function Product({product}) {
             <Tile />
           </TileWrapper>
         </div>
-        <p>Ingredients: {product.ingredients}</p>
-        <p>Sensitivity: {product.sensitivity}</p>
-        <p>About: {product.about}</p>
+        <p><b>Ingredients</b> {product.ingredients}</p>
+        <p><b>Brand</b> {product.brand}</p>
+        <p><b>Ingredient Information</b>{product.ingredient_info}</p>
+        <p><b>Sensitive</b> {product.sensitivity}</p>
+        <p><b>About this item</b></p>
+        <p>{product.about}</p>
       </div>
     </Wrapper>
   )
