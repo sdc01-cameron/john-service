@@ -38,7 +38,7 @@ class Tile extends React.Component {
     return (
       <Item>
         <h3>{product.name}</h3>
-        <p style={{ color: 'red' }}>${product.price}</p>
+        <p style={{ color: 'red' }}>${Number(product.price).toFixed(2)}</p>
         <h4>{product.prime ? <img alt="prime" src={primeLogo} style={{ height: '25px', width: '57px'}}/> : 'Not Prime'}</h4>
       </Item>
     )

@@ -17,14 +17,14 @@ const TileWrapper = styled.div`
 `;
 
 function Product({product}) {
-  console.log(product);
+  console.log(Number(product.price).toFixed(2));
   return (
     <Wrapper>
       <div>
         <h1>{product.name}</h1>
         <p>Ratings Average: {product.ratings_avg}</p>
         <hr></hr>
-        <p>Price: <span style={{ color: 'red' }}>${product.price}</span></p>
+        <p>Price: <span style={{ color: 'red' }}>${Number(product.price).toFixed(2)}</span></p>
         <h4>{product.prime ? <img alt="prime" src={primeLogo} style={{ height: '25px', width: '57px'}}/> : 'Not Prime'}</h4>
         <p>This item is {product.returnable ? 'returnable' : 'non-returnable'} </p>
         <p>Flavor: <b>{product.flavor}</b></p>
