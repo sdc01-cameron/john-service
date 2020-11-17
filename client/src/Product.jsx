@@ -17,7 +17,6 @@ const TileWrapper = styled.div`
 `;
 
 function Product({product}) {
-  console.log(Number(product.price).toFixed(2));
   return (
     <Wrapper>
       <div>

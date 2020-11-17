@@ -1,6 +1,15 @@
 const faker = require('faker');
 const mongoose = require('mongoose');
 const {Product} = require('../server/database');
+//const db = require('../server/database');
+
+mongoose.connect('mongodb://localhost/products', {useNewUrlParser: true});
+const db = mongoose.connection;
+
+db.dropDatabase(
+  console.log(`database dropped.`)
+);
+
 
 const makeProducts = () => {
 
