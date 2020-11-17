@@ -17,7 +17,7 @@ const productSchema = new mongoose.Schema({
   ingredients: String,
   brand: String,
   sensitivity: String,
-  ingredient_information: String,
+  ingredient_info: String,
   about: String,
   ratings_avg: Number
 })
