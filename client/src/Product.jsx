@@ -38,8 +38,10 @@ function Product({product}) {
         </div>
         <p><b>Ingredients</b> {product.ingredients}</p>
         <p><b>Brand</b> {product.brand}</p>
-        <p><b>Ingredient Information</b>{product.ingredient_info}</p>
         <p><b>Sensitive</b> {product.sensitivity}</p>
+        <p><b>Ingredient Information</b></p>
+        <p>{product.ingredient_info}</p>
+        <hr></hr>
         <p><b>About this item</b></p>
         <p>{product.about}</p>
       </div>
