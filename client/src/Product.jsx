@@ -30,7 +30,7 @@ function Product({product}) {
         <p>Flavor: <b>{product.flavor}</b></p>
         <div>
           <TileWrapper>
-            <Tile />
+            <Tile product={product} />
             <Tile />
             <Tile />
             <Tile />
