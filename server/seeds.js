@@ -8,7 +8,7 @@ const makeProducts = () => {
     let product = {};
     product._id = i;
     product.name = faker.commerce.productName();
-    product.price = faker.commerce.price();
+    product.price = faker.finance.amount();
     product.prime = true;
     product.returnable = false;
     product.ingredients = faker.commerce.productMaterial();
