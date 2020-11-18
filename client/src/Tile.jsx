@@ -9,13 +9,14 @@ const URL = 'http://localhost:3005/api/products/';
 
 const Item = styled.div`
   border: 2px solid #E0E0E0;
+  border-radius: 5px;
   justify-content: center;
   padding: 10px;
   margin: 5px;
-  ${({ isSelected }) => (
-    isSelected && `background-color: #FFFFE0;
-  border-color: #FFA723;
-  `)};
+  ${({ isSelected }) => isSelected && `
+    background-color: #FFFFE0;
+    border-color: #FFA723;
+  `}
   &:hover {
     background-color: #FFEFD5;
 
@@ -27,7 +28,9 @@ class Tile extends React.Component {
     super(props);
     this.state = {
       product: {},
+      isSelected: false
     }
+    this.selected = this.selected.bind(this);
   }
 
   componentDidMount() {
@@ -41,17 +44,18 @@ class Tile extends React.Component {
       })
   }
 
+  selected() {
+    this.props.productSelection(this.state.product);
+    this.setState({
+      isSelected: true
+    })
+  }
+
   render () {
-    let product;
-    let isSelected = false;
-    if (this.props.product) {
-      product = this.props.product;
-      isSelected = true;
-    } else {
-      product = this.state.product;
-    }
+    let product = this.state.product;
+    let isSelected = this.state.isSelected;
     return (
-      <Item isSelected={isSelected}>
+      <Item isSelected={isSelected} onClick={this.selected}>
         <h3>{product.name}</h3>
         <p style={{ color: 'red' }}>${Number(product.price).toFixed(2)}</p>
         <h4>{product.prime ? <img alt="prime" src={primeLogo} style={{ height: '25px', width: '57px'}}/> : 'Not Prime'}</h4>

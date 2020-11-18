@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import primeLogo from '../../public/images/primeLogo_621x260.png';
@@ -18,8 +18,18 @@ const TileWrapper = styled.div`
   grid-gap: 5px
 `;
 
+
 const Product = ({product}) => {
+  const [selectedProduct, setProduct] = useState(true);
+
+  const productSelection = (selProduct) => {
+    setProduct(selProduct);
+  }
+
   let ratingsNum = Math.floor(Math.random() * 1000) + 1;
+  if (selectedProduct.name) {
+    product = selectedProduct;
+  }
   return (
     <Wrapper>
       <div>
@@ -32,10 +42,10 @@ const Product = ({product}) => {
         <p>Flavor: <b>{product.flavor}</b></p>
         <div>
           <TileWrapper>
-            <Tile product={product} />
-            <Tile />
-            <Tile />
-            <Tile />
+            <Tile productSelection={productSelection}/>
+            <Tile productSelection={productSelection}/>
+            <Tile productSelection={productSelection}/>
+            <Tile productSelection={productSelection}/>
           </TileWrapper>
         </div>
         <Table product={product} />
