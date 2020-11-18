@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import primeLogo from '../../public/images/primeLogo_621x260.png';
 
 import Tile from './Tile.jsx';
+import Stars from './Stars.jsx';
 import Table from './Table.jsx';
 
 const Wrapper = styled.section`
@@ -17,12 +18,13 @@ const TileWrapper = styled.div`
   grid-gap: 5px
 `;
 
-function Product({product}) {
+const Product({product}) => {
+  let ratingsNum = Math.floor(Math.random() * 1000) + 1;
   return (
     <Wrapper>
       <div>
         <h1>{product.name}</h1>
-        <p>Ratings Average: {product.ratings_avg}</p>
+        <Stars rating={product.ratings_avg} ratingsNum={ratingsNum} />
         <hr></hr>
         <p>Price: <span style={{ color: 'red' }}>${Number(product.price).toFixed(2)}</span></p>
         <h4>{product.prime ? <img alt="prime" src={primeLogo} style={{ height: '25px', width: '57px'}}/> : 'Not Prime'}</h4>
