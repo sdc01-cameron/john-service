@@ -20,6 +20,7 @@ const TileWrapper = styled.div`
 
 
 const Product = ({product}) => {
+
   const [selectedProduct, setProduct] = useState(true);
 
   const productSelection = (selProduct) => {
@@ -42,10 +43,10 @@ const Product = ({product}) => {
         <p>Flavor: <b>{product.flavor}</b></p>
         <div>
           <TileWrapper>
-            <Tile productSelection={productSelection}/>
-            <Tile productSelection={productSelection}/>
-            <Tile productSelection={productSelection}/>
-            <Tile productSelection={productSelection}/>
+            {[...Array(4)].map((item, index) => {
+              let isSelected = true;
+              return index === 0 ? <Tile isSelected={isSelected} productSelection={productSelection}/> : <Tile productSelection={productSelection}/>
+            })}
           </TileWrapper>
         </div>
         <Table product={product} />

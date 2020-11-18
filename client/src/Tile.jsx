@@ -46,14 +46,14 @@ class Tile extends React.Component {
 
   selected() {
     this.props.productSelection(this.state.product);
-    this.setState({
-      isSelected: true
-    })
   }
 
   render () {
-    let product = this.state.product;
-    let isSelected = this.state.isSelected;
+    let {product, isSelected} = this.state;
+    if (this.props.isSelected) {
+      isSelected = true;
+    }
+
     return (
       <Item isSelected={isSelected} onClick={this.selected}>
         <h3>{product.name}</h3>
