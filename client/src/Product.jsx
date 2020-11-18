@@ -5,6 +5,7 @@ import primeLogo from '../../public/images/primeLogo_621x260.png';
 
 import Tile from './Tile.jsx';
 import Stars from './Stars.jsx';
+import Table from './Table.jsx';
 
 const Wrapper = styled.section`
   padding: 4em;
@@ -31,17 +32,13 @@ const Product({product}) => {
         <p>Flavor: <b>{product.flavor}</b></p>
         <div>
           <TileWrapper>
-            <Tile />
+            <Tile product={product} />
             <Tile />
             <Tile />
             <Tile />
           </TileWrapper>
         </div>
-        <p><b>Ingredients</b> {product.ingredients}</p>
-        <p><b>Brand</b> {product.brand}</p>
-        <p><b>Sensitive</b> {product.sensitivity}</p>
-        <p><b>Ingredient Information</b></p>
-        <p>{product.ingredient_info}</p>
+        <Table product={product} />
         <hr></hr>
         <p><b>About this item</b></p>
         <p>{product.about}</p>
