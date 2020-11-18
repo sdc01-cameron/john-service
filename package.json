@@ -11,7 +11,8 @@
   "scripts": {
     "start": "node server/app.js",
     "build": "webpack -d --watch",
-    "seed": "node server/seeds.js"
+    "seed": "node server/seeds.js",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
