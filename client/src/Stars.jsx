@@ -3,7 +3,7 @@ import FullStar from '../../public/images/full-star.png';
 import HalfStar from '../../public/images/half-star.png';
 import EmptyStar from '../../public/images/empty-star.png';
 
-const Stars = ({rating}) => {
+const Stars = ({rating, ratingsNum}) => {
   return (
     <div>
       {[...Array(5)].map((item, index) => {
@@ -16,8 +16,11 @@ const Stars = ({rating}) => {
         } else {
           typeOfStar = EmptyStar;
         }
-        return <img src={typeOfStar} style={{height: '25px'}}></img>
+        return index === 4 ? <img src={typeOfStar} style={{height: '20px', margin:'0 17px 0 0'}}></img> : <img src={typeOfStar} style={{height: '20px'}}></img>
       })}
+      {ratingsNum} ratings
     </div>
   )
 }
+
+export default Stars;
