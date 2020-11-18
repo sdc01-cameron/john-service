@@ -18,7 +18,7 @@ const TileWrapper = styled.div`
   grid-gap: 5px
 `;
 
-const Product({product}) => {
+const Product = ({product}) => {
   let ratingsNum = Math.floor(Math.random() * 1000) + 1;
   return (
     <Wrapper>
