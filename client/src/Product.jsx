@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import primeLogo from '../../public/images/primeLogo_621x260.png';
+import GlobalFonts from './fonts/fonts.js';
 
 import Tile from './Tile.jsx';
 import Stars from './Stars.jsx';
@@ -9,6 +10,8 @@ import Table from './Table.jsx';
 
 const Wrapper = styled.section`
   padding: 4em;
+  font-family: 'PT Sans';
+  font-weight: 400;
 `;
 
 const TileWrapper = styled.div`
