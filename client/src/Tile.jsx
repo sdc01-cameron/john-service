@@ -16,6 +16,7 @@ const Item = styled.div`
   ${({ isSelected }) => isSelected && `
     background-color: #FFFFE0;
     border-color: #FFA723;
+    box-shadow: 2px 2px 2px 2px orange;
   `}
   &:hover {
     background-color: #FFEFD5;
