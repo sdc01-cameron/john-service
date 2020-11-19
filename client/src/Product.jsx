@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import primeLogo from '../../public/images/primeLogo_621x260.png';
+import GlobalFonts from './fonts/fonts.js';
 
 import Tile from './Tile.jsx';
 import Stars from './Stars.jsx';
@@ -9,6 +10,8 @@ import Table from './Table.jsx';
 
 const Wrapper = styled.section`
   padding: 4em;
+  font-family: 'PT Sans';
+  font-weight: 400;
 `;
 
 const TileWrapper = styled.div`
@@ -18,8 +21,20 @@ const TileWrapper = styled.div`
   grid-gap: 5px
 `;
 
+
 const Product = ({product}) => {
+  //let isSelected = false;
+  const [selectedProduct, setProduct] = useState(true);
+
+  const productSelection = (selProduct) => {
+    setProduct(selProduct);
+  }
+
   let ratingsNum = Math.floor(Math.random() * 1000) + 1;
+  if (selectedProduct.name) {
+    product = selectedProduct;
+    //isSelected = true;
+  }
   return (
     <Wrapper>
       <div>
@@ -32,10 +47,9 @@ const Product = ({product}) => {
         <p>Flavor: <b>{product.flavor}</b></p>
         <div>
           <TileWrapper>
-            <Tile product={product} />
-            <Tile />
-            <Tile />
-            <Tile />
+            {[...Array(4)].map((item, index) => {
+              return <Tile productSelection={productSelection}/>
+            })}
           </TileWrapper>
         </div>
         <Table product={product} />
