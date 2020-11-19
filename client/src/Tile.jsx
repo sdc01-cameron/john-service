@@ -29,7 +29,7 @@ class Tile extends React.Component {
     super(props);
     this.state = {
       product: {},
-      isSelected: false
+      //isSelected: false
     }
     this.selected = this.selected.bind(this);
   }
@@ -50,13 +50,13 @@ class Tile extends React.Component {
   }
 
   render () {
-    let {product, isSelected} = this.state;
-    if (this.props.isSelected) {
-      isSelected = true;
-    }
+    let {product} = this.state;
+    // if (this.props.isSelected) {
+    //   isSelected = true;
+    // }
 
     return (
-      <Item isSelected={isSelected} onClick={this.selected}>
+      <Item onClick={this.selected}>
         <h3>{product.name}</h3>
         <p style={{ color: 'red' }}>${Number(product.price).toFixed(2)}</p>
         <h4>{product.prime ? <img alt="prime" src={primeLogo} style={{ height: '25px', width: '57px'}}/> : 'Not Prime'}</h4>

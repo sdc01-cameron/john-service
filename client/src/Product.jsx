@@ -23,7 +23,7 @@ const TileWrapper = styled.div`
 
 
 const Product = ({product}) => {
-  let isSelected = false;
+  //let isSelected = false;
   const [selectedProduct, setProduct] = useState(true);
 
   const productSelection = (selProduct) => {
@@ -33,7 +33,7 @@ const Product = ({product}) => {
   let ratingsNum = Math.floor(Math.random() * 1000) + 1;
   if (selectedProduct.name) {
     product = selectedProduct;
-    isSelected = true;
+    //isSelected = true;
   }
   return (
     <Wrapper>
@@ -48,7 +48,7 @@ const Product = ({product}) => {
         <div>
           <TileWrapper>
             {[...Array(4)].map((item, index) => {
-              return index === 0 ? <Tile isSelected={isSelected} productSelection={productSelection}/> : <Tile productSelection={productSelection}/>
+              return <Tile productSelection={productSelection}/>
             })}
           </TileWrapper>
         </div>
