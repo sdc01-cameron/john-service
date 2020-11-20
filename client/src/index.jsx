@@ -4,8 +4,6 @@ import axios from 'axios';
 
 import Product from './Product.jsx';
 
-const URL = 'http://localhost:3005/api/products/';
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -16,12 +14,15 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    let randomNum = Math.floor(Math.random() * 100) + 1;
-    axios.get(`${URL}${randomNum}`)
+    //let randomNum = Math.floor(Math.random() * 100) + 1;
+    let url = window.location.pathname.split('/');
+    let id = url.join('');
+    axios.get(`/api/products/${id}`)
       .then(res => {
         const product = res.data;
+        console.log(res);
         this.setState({
-          product: res.data
+          product: product
         })
       })
   }

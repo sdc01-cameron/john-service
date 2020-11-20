@@ -1,6 +1,6 @@
 const supertest = require('supertest');
 
-const request = supertest('http://localhost:3005');
+const request = supertest('http://localhost:3001');
 
 describe('GET route for product', () => {
   it('should successfully access GET route', (done) => {

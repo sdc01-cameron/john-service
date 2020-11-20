@@ -5,8 +5,6 @@ import axios from 'axios';
 import styled from 'styled-components';
 import primeLogo from '../../public/images/primeLogo_621x260.png';
 
-const URL = 'http://localhost:3005/api/products/';
-
 const Item = styled.div`
   border: 2px solid #E0E0E0;
   border-radius: 5px;
@@ -36,7 +34,7 @@ class Tile extends React.Component {
 
   componentDidMount() {
     let randomNum = Math.floor(Math.random() * 100) + 1;
-    axios.get(`${URL}${randomNum}`)
+    axios.get(`/api/products/${randomNum}`)
       .then(res => {
         const product = res.data;
         this.setState({
