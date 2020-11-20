@@ -8,6 +8,12 @@
   "engines": {
     "node": ">=6.13.0"
   },
+  "jest": {
+    "testEnvironment": "node",
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js"
+    }
+  },
   "scripts": {
     "start": "node server/app.js",
     "build": "webpack -d --watch",
@@ -34,6 +40,8 @@
     "webpack-cli": "^4.2.0"
   },
   "devDependencies": {
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.5",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "faker": "^5.1.0",
     "file-loader": "^6.2.0",
