@@ -13,33 +13,29 @@ db.dropDatabase(
 
 const makeProducts = () => {
 
-  for (let i = 1; i < 100; i++) {
-    let product = {};
-    product._id = i;
-    product.name = faker.commerce.productName();
-    product.price = faker.finance.amount();
-    product.prime = true;
-    product.returnable = false;
-    product.ingredients = faker.commerce.productMaterial();
-    product.flavor = faker.commerce.color();
-    product.sensitivity = faker.commerce.productMaterial();
-    product.brand = faker.company.companyName();
-    product.ingredient_info = faker.commerce.productDescription();
-    product.about = faker.commerce.productDescription();
+  for (let i = 0; i < 100; i++) {
     let avg = Math.floor(Math.random() * 5) + 1;
-    product.ratings_avg = avg;
 
-    Product.create(product, (err, doc) => {
-      if (err) {
-        console.log('Error: ', err);
+    var product = new Product({
+      _id: i;
+      name: faker.commerce.productName();
+      price: faker.finance.amount();
+      prime: true;
+      returnable: false;
+      ingredients: faker.commerce.productMaterial();
+      flavor: faker.commerce.color();
+      sensitivity: faker.commerce.productMaterial();
+      brand: faker.company.companyName();
+      ingredient_info: faker.commerce.productDescription();
+      about: faker.commerce.productDescription();
+      ratings_avg: avg;
+    }).save(result => {
+      if (i === 99) {
+        console.log('All documents were created!')
+        mongoose.disconnect();
       }
-    });
-    if (i === 100) {
-      mongoose.disconnect();
-    }
+    })
   }
-
-  console.log('All documents were created!')
 };
 makeProducts();
 
