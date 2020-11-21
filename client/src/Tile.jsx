@@ -48,9 +48,11 @@ class Tile extends React.Component {
   }
 
   render () {
-    let {product} = this.state;
-    // if (this.props.isSelected) {
-    //   isSelected = true;
+    let product = this.state.product;
+    // if (this.props.product) {
+    //   product = this.props.product;
+    // } else {
+
     // }
 
     return (

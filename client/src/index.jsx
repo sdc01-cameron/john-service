@@ -20,7 +20,6 @@ class App extends React.Component {
     axios.get(`/api/products/${id}`)
       .then(res => {
         const product = res.data;
-        console.log(res);
         this.setState({
           product: product
         })
