@@ -1,12 +1,12 @@
 const express = require('express');
 const app = express();
-const port = 3001;
+const port = 3002;
 
 const Product = require('../server/database').Product;
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
-app.use('/:id', express.static('public'));
+app.use('/', express.static('public'));
 
 app.get('/api/products/:id', (req, res) => {
   Product.findById(req.params.id, (err, product) => {

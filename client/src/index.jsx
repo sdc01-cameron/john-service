@@ -14,9 +14,9 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    //let randomNum = Math.floor(Math.random() * 100) + 1;
-    let url = window.location.pathname.split('/');
-    let id = url.join('');
+    let id = Math.floor(Math.random() * 100) + 1;
+    // let url = window.location.pathname.split('/');
+    // let id = url.join('');
     axios.get(`/api/products/${id}`)
       .then(res => {
         const product = res.data;
@@ -36,4 +36,4 @@ class App extends React.Component {
 
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('ProductInfoService'));
