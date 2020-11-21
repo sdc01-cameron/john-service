@@ -17,18 +17,18 @@ const makeProducts = () => {
     let avg = Math.floor(Math.random() * 5) + 1;
 
     var product = new Product({
-      _id: i;
-      name: faker.commerce.productName();
-      price: faker.finance.amount();
-      prime: true;
-      returnable: false;
-      ingredients: faker.commerce.productMaterial();
-      flavor: faker.commerce.color();
-      sensitivity: faker.commerce.productMaterial();
-      brand: faker.company.companyName();
-      ingredient_info: faker.commerce.productDescription();
-      about: faker.commerce.productDescription();
-      ratings_avg: avg;
+      _id: i,
+      name: faker.commerce.productName(),
+      price: faker.finance.amount(),
+      prime: true,
+      returnable: false,
+      ingredients: faker.commerce.productMaterial(),
+      flavor: faker.commerce.color(),
+      sensitivity: faker.commerce.productMaterial(),
+      brand: faker.company.companyName(),
+      ingredient_info: faker.commerce.productDescription(),
+      about: faker.commerce.productDescription(),
+      ratings_avg: avg
     }).save(result => {
       if (i === 99) {
         console.log('All documents were created!')
