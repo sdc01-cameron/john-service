@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
-import primeLogo from '../../public/images/primeLogo_621x260.png';
+//import primeLogo from '../../public/images/primeLogo_621x260.png';
 import GlobalFonts from './fonts/fonts.js';
 
 import Tile from './Tile.jsx';
@@ -42,7 +42,7 @@ const Product = ({product}) => {
         <Stars rating={product.ratings_avg} ratingsNum={ratingsNum} />
         <hr></hr>
         <p>Price: <span style={{ color: 'red' }}>${Number(product.price).toFixed(2)}</span></p>
-        <h4>{product.prime ? <img alt="prime" src={primeLogo} style={{ height: '25px', width: '57px'}}/> : 'Not Prime'}</h4>
+        <h4>{product.prime ? <img alt="prime" src={`https://fec-pics.s3.us-east-2.amazonaws.com/primeLogo_621x260.png`} style={{ height: '25px', width: '57px'}}/> : 'Not Prime'}</h4>
         <p>This item is {product.returnable ? 'returnable' : 'non-returnable'} </p>
         <p>Flavor: <b>{product.flavor}</b></p>
         <div>
