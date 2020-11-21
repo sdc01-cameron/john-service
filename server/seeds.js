@@ -13,7 +13,7 @@ db.dropDatabase(
 
 const makeProducts = () => {
 
-  for (let i = 0; i < 100; i++) {
+  for (let i = 1; i < 100; i++) {
     let product = {};
     product._id = i;
     product.name = faker.commerce.productName();
