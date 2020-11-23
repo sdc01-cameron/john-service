@@ -9,16 +9,25 @@ import Stars from './Stars.jsx';
 import Table from './Table.jsx';
 
 const Wrapper = styled.section`
-  padding: 4em;
+  padding: 5px;
   font-family: 'PT Sans';
   font-weight: 400;
+  font-size: 15px;
 `;
 
 const TileWrapper = styled.div`
-  padding: 10px;
+  padding: 5px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 200px);
   grid-gap: 5px
+`;
+
+const TableWrapper = styled.div`
+  font-size: 15px;
+`;
+
+const About = styled.div`
+  font-size: 15px;
 `;
 
 
@@ -52,10 +61,14 @@ const Product = ({product}) => {
             })}
           </TileWrapper>
         </div>
-        <Table product={product} />
+        <TableWrapper>
+          <Table product={product} />
+        </TableWrapper>
         <hr></hr>
-        <p><b>About this item</b></p>
-        <p>{product.about}</p>
+        <About>
+          <p><b>About this item</b></p>
+          <p>{product.about}</p>
+        </About>
       </div>
     </Wrapper>
   )

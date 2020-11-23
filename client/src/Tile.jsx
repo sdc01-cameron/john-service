@@ -9,8 +9,9 @@ const Item = styled.div`
   border: 2px solid #E0E0E0;
   border-radius: 5px;
   justify-content: center;
-  padding: 10px;
-  margin: 5px;
+  padding: 5px;
+  margin: 3px;
+  font-size: 15px;
   ${({ isSelected }) => isSelected && `
     background-color: #FFFFE0;
     border-color: #FFA723;
