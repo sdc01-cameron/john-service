@@ -18,7 +18,8 @@
     "start": "node server/app.js",
     "build": "webpack -d --watch",
     "seed": "node server/seeds.js",
-    "test": "jest"
+    "test": "jest",
+    "production": "webpack --config webpack.config.js && node server/app.js"
   },
   "repository": {
     "type": "git",

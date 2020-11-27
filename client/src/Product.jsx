@@ -50,8 +50,7 @@ const Product = ({product}) => {
         <h1>{product.name}</h1>
         <Stars rating={product.ratings_avg} ratingsNum={ratingsNum} />
         <hr></hr>
-        <p>Price: <span style={{ color: 'red' }}>${Number(product.price).toFixed(2)}</span></p>
-        <h4>{product.prime ? <img alt="prime" src={`https://fec-pics.s3.us-east-2.amazonaws.com/primeLogo_621x260.png`} style={{ height: '25px', width: '57px'}}/> : 'Not Prime'}</h4>
+        <p>Price: <span style={{ color: 'red' }}>${Number(product.price).toFixed(2)}</span><span>{product.prime ? <img alt="prime" src={`https://fec-pics.s3.us-east-2.amazonaws.com/primeLogo_621x260.png`} style={{ height: '25px', width: '57px'}}/> : 'Not Prime'}</span></p>
         <p>This item is {product.returnable ? 'returnable' : 'non-returnable'} </p>
         <p>Flavor: <b>{product.flavor}</b></p>
         <div>
