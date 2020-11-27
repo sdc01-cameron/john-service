@@ -2,21 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 
-import styled from 'styled-components';
-//import primeLogo from '../../public/images/primeLogo_621x260.png';
-
-const Item = styled.div`
-  border: 2px solid #E0E0E0;
-  border-radius: 5px;
-  justify-content: center;
-  padding: 5px;
-  margin: 3px;
-  font-size: 15px;
-  &:hover {
-    background-color: #FFEFD5;
-
-  }
-`;
+//import styled from 'styled-components';
+import styles from './style.css';
 
 class Tile extends React.Component {
   constructor(props) {
@@ -46,11 +33,11 @@ class Tile extends React.Component {
     let product = this.state.product;
 
     return (
-      <Item onClick={this.selected}>
+      <div className={styles.item} onClick={this.selected}>
         <h3>{product.name}</h3>
         <p style={{ color: 'red' }}>${Number(product.price).toFixed(2)}</p>
         <h4>{product.prime ? <img alt="prime" src={`https://fec-pics.s3.us-east-2.amazonaws.com/primeLogo_621x260.png`} style={{ height: '25px', width: '57px'}}/> : 'Not Prime'}</h4>
-      </Item>
+      </div>
     )
   }
 }
