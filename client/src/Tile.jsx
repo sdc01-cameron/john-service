@@ -12,11 +12,6 @@ const Item = styled.div`
   padding: 5px;
   margin: 3px;
   font-size: 15px;
-  ${({ isSelected }) => isSelected && `
-    background-color: #FFFFE0;
-    border-color: #FFA723;
-    box-shadow: 2px 2px 2px 2px orange;
-  `}
   &:hover {
     background-color: #FFEFD5;
 
@@ -28,7 +23,6 @@ class Tile extends React.Component {
     super(props);
     this.state = {
       product: {},
-      //isSelected: false
     }
     this.selected = this.selected.bind(this);
   }
@@ -50,11 +44,6 @@ class Tile extends React.Component {
 
   render () {
     let product = this.state.product;
-    // if (this.props.product) {
-    //   product = this.props.product;
-    // } else {
-
-    // }
 
     return (
       <Item onClick={this.selected}>
