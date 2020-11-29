@@ -7,6 +7,7 @@ import GlobalFonts from './fonts/fonts.js';
 import Tile from './Tile.jsx';
 import Stars from './Stars.jsx';
 import Table from './Table.jsx';
+import MainTile from './MainTile.jsx';
 
 const Product = ({product}) => {
   const [selectedProduct, setProduct] = useState({});
@@ -16,9 +17,11 @@ const Product = ({product}) => {
   }
 
   let ratingsNum = Math.floor(Math.random() * 1000) + 1;
+  let mainTileProduct = product;
   if (selectedProduct.name) {
     product = selectedProduct;
   }
+
   return (
     <section className={styles.wrapper}>
       <h1>{product.name}</h1>
@@ -28,8 +31,9 @@ const Product = ({product}) => {
       <p>This item is {product.returnable ? 'returnable' : 'non-returnable'} </p>
       <p>Flavor: <b>{product.flavor}</b></p>
       <div className={styles.tilewrapper}>
-        {[...Array(4)].map((item, index) => {
-          return index === 0 ? <Tile product={product} productSelection={productSelection}/> : <Tile productSelection={productSelection}/>
+        <MainTile product={mainTileProduct} productSelection={productSelection} />
+        {[...Array(3)].map((item, index) => {
+          return <Tile productSelection={productSelection}/>
         })}
       </div>
       <Table product={product} />
