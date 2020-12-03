@@ -14,25 +14,25 @@ app.get('/api/products/:id', (req, res) => {
       console.log('Error in GET (single document):', err);
       res.send(404);
     } else {
-      console.log('Succes in Get (single Document');
+      console.log('Success in Get (single document)');
       res.send(product);
     }
   });
 });
 
-app.get('/api/getall', (req, res) => {
+app.get('/api/products/all', (req, res) => {
   Product.find({}, (err, product) => {
     if (err) {
       console.log('Error in GET (full collection): ', err);
       res.send(404);
     } else {
-      console.log('Succes in Get (full collection)');
+      console.log('Success in Get (full collection)');
       res.send(product);
     }
   });
 });
 
-app.post('/api/products/new', (req, res) => {
+app.post('/api/products', (req, res) => {
   console.log('req.body is: ', req.body);
   var newProduct = new Product(req.body);
   newProduct.save((err, insertion) => {
@@ -53,7 +53,7 @@ app.delete('/api/products/:id', (req, res) => {
       res.send('Error in Delete occurred');
       return;
     }
-    console.log('Success in Delete: ');
+    console.log('Success in Delete');
     res.send(deletedRecord);
   });
 });

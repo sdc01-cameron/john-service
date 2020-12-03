@@ -11,6 +11,7 @@
 ## Table of Contents
 
 1. [Usage](#Usage)
+1. [Crud](#crud)
 1. [Requirements](#requirements)
 1. [Development](#development)
 
@@ -38,6 +39,15 @@ For production:
 ```sh
 npm run production
 ```
+
+## Crud
+| Action               | Method        | url              |
+| -------------------- | ------------- | ---------------- |
+| Create a new product | POST          | /api/products/:id|
+| Retrieve all products| GET           | /api/products    |
+| Retrieve a product   | GET           | /api/products/:id|
+| Delete a product     | DELETE        | /api/products/:id|
+| Update a product     | PUT           | /api/products/:id|
 
 ## Requirements
 
