@@ -9,7 +9,7 @@ db.once('open', function() {
 // Set schema
 const productSchema = new mongoose.Schema({
   _id: Number,
-  name:  String,
+  name: String,
   price: Number,
   prime: Boolean,
   returnable: Boolean,
@@ -20,7 +20,7 @@ const productSchema = new mongoose.Schema({
   ingredient_info: String,
   about: String,
   ratings_avg: Number
-})
+});
 // compile schema to a model
 const Product = mongoose.model('Product', productSchema);
 
