@@ -19,7 +19,11 @@
     "build": "webpack -d --watch",
     "seed": "node server/seeds.js",
     "test": "jest",
-    "production": "webpack --config webpack.config.js && node server/app.js"
+    "production": "webpack --config webpack.config.js && node server/app.js",
+    "createcsv": "node server/pgDBSeeding/generateCSV.js",
+    "droptable": "node server/pgDBSeeding/dropTable.js",
+    "createtable": "server/pgDBSeeding/createTable.js",
+    "count": "server/pgDBSeeding/selectCount.js"
   },
   "repository": {
     "type": "git",

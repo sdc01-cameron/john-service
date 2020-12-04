@@ -1,8 +1,8 @@
-const pool = require('./queries1.js').pool;
+const pool = require('./pgConnection.js').pool;
 
 pool.query(`
-  COPY testtable
-  FROM '/Users/jandy/Work/sdc/john-service/server/exampleWrite.csv'
+  COPY productsTable
+  FROM '/Users/jandy/Work/sdc/john-service/server/pgDBSeeding/products.csv'
   DELIMITER '|'
   `, (error, result) => {
   if (error) {

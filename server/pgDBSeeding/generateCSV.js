@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const faker = require('faker');
 
-const locationFile = path.join(__dirname, '/exampleWrite.csv');
+const locationFile = path.join(__dirname, '/products.csv');
 const writeStream = fs.createWriteStream(locationFile, 'utf8');
 
 const looperWriteDirect = (length) => {
@@ -21,17 +21,17 @@ const looperWriteDirect = (length) => {
     product.ingredient_info = faker.commerce.productDescription();
     product.about = faker.commerce.productDescription();
     product.ratings_avg = avg;
-    if (i % 100 === 0) {
-      // console.log('Completed: ', i);
+    if ((i + 1) % 1000000 === 0) {
+      console.log('Completed: ', (((i + 1) / length) * 100), '%');
     }
-    writeStream.write(product.name + '|' + product.price + '|' + product.prime + '|' + product.returnable + '|' + product.ingredients + '|' + product.flavor + '|' + product.sensitivity + '|' + product.brand + '|' + product.ingredient_info + '|' + product.about + '|' + product.ratings_avg + '\n');
+    writeStream.write(product.id + '|' + product.name + '|' + product.price + '|' + product.prime + '|' + product.returnable + '|' + product.ingredients + '|' + product.flavor + '|' + product.sensitivity + '|' + product.brand + '|' + product.ingredient_info + '|' + product.about + '|' + product.ratings_avg + '\n');
   }
 
   writeStream.end();
 
 };
 
-looperWriteDirect(100);
+looperWriteDirect(10000000);
 
 
 

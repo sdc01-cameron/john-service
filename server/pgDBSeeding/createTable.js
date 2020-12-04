@@ -1,7 +1,7 @@
-const pool = require('./queries1.js').pool;
+const pool = require('./pgConnection.js').pool;
 
 pool.query(`CREATE TABLE
-    testTable1(
+    productsTable(
     id INTEGER,
     name TEXT,
     price FLOAT,

@@ -1,7 +1,7 @@
-const pool = require('./queries1.js').pool;
+const pool = require('./pgConnection.js').pool;
 
 pool.query(`
-    DROP TABLE testtable
+    DROP TABLE productsTable
   `, (error, result) => {
   if (error) {
     console.log('Error in Table Drop: ');
