@@ -31,10 +31,10 @@ const makeProducts = () => {
       ratings_avg: avg
     }).save(result => {
       if (i === 99) {
-        console.log('All documents were created!')
+        console.log('All documents were created!');
         mongoose.disconnect();
       }
-    })
+    });
   }
 };
 makeProducts();
