@@ -21,9 +21,7 @@
     "test": "jest",
     "production": "webpack --config webpack.config.js && node server/app.js",
     "createcsv": "node server/pgDBSeeding/generateCSV.js",
-    "droptable": "node server/pgDBSeeding/dropTable.js",
-    "createtable": "server/pgDBSeeding/createTable.js",
-    "count": "server/pgDBSeeding/selectCount.js"
+    "pgcreatetable": "node server/pgDBSeeding/dropTable.js && node server/pgDBSeeding/createTable.js"
   },
   "repository": {
     "type": "git",
