@@ -1,8 +1,8 @@
 const pool = require('./pgConnection.js').pool;
 
 pool.query(`CREATE TABLE
-    productsTable(
-    id INTEGER,
+    products(
+    id INTEGER PRIMARY KEY,
     name TEXT,
     price FLOAT,
     prime BOOLEAN,
@@ -16,11 +16,10 @@ pool.query(`CREATE TABLE
     ratings_avg FLOAT
   )`, (error, result) => {
   if (error) {
-    console.log('error');
+    console.log('Error in Table Creation:');
     console.log(error);
   } else {
-    console.log('success');
-    console.log(result.rows);
+    console.log('Success: Table Created');
   }
   pool.end;
 });

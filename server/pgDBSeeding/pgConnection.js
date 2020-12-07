@@ -4,7 +4,7 @@ const client = new Client();
 const pool = new Pool({
   user: 'jandy',
   host: 'localhost',
-  database: 'test',
+  database: 'amazon_products',
   password: '',
   port: 5432,
 });
