@@ -1,8 +1,8 @@
 const pool = require('./pgConnection.js').pool;
 
 pool.query(`CREATE TABLE
-    productsTable2(
-    id INTEGER,
+    products(
+    id INTEGER PRIMARY KEY,
     name TEXT,
     price FLOAT,
     prime BOOLEAN,
