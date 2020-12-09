@@ -9,7 +9,6 @@ const looperWriteDirect = (length) => {
   let product = {};
   for (var i = 0; i < length; i++) {
     let avg = Math.floor(Math.random() * 5) + 1;
-    product.id = i + 1;
     product.name = faker.commerce.productName();
     product.price = faker.finance.amount();
     product.prime = true;
@@ -24,7 +23,7 @@ const looperWriteDirect = (length) => {
     if ((i + 1) % 1000000 === 0) {
       console.log('Completed: ', (((i + 1) / length) * 100), '%');
     }
-    writeStream.write(product.id + '|' + product.name + '|' + product.price + '|' + product.prime + '|' + product.returnable + '|' + product.ingredients + '|' + product.flavor + '|' + product.sensitivity + '|' + product.brand + '|' + product.ingredient_info + '|' + product.about + '|' + product.ratings_avg + '\n');
+    writeStream.write(product.name + '|' + product.price + '|' + product.prime + '|' + product.returnable + '|' + product.ingredients + '|' + product.flavor + '|' + product.sensitivity + '|' + product.brand + '|' + product.ingredient_info + '|' + product.about + '|' + product.ratings_avg + '\n');
   }
 
   writeStream.end();
