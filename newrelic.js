@@ -1,3 +1,5 @@
+const { licenseKey } = require('./newrelic-license-key.js');
+console.log(licenseKey.length);
 'use strict'
 /**
  * New Relic agent configuration.
@@ -9,11 +11,11 @@ exports.config = {
   /**
    * Array of application names.
    */
-  app_name: ['My Application'],
+  app_name: ['john-service'],
   /**
    * Your New Relic license key.
    */
-  license_key: 'license key here',
+  license_key: licenseKey,
   /**
    * This setting controls distributed tracing.
    * Distributed tracing lets you see the path that a request takes through your
