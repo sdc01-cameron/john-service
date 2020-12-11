@@ -1,0 +1,86 @@
+config:
+  environments:
+    staging:
+      target: "http://localhost:3002"
+      # processor: "./my-function.js"
+      tls:
+        rejectUnauthorized: false
+      phases:
+        - duration: 60
+          arrivalRate: 10
+scenarios:
+  - name: "GET Requests to john-service"
+    flow:
+      - get:
+          url: "/api/products/9999995"
+      - post:
+          url: "/api/products"
+          json:
+            name: "TESTHERE"
+            price: 22
+            prime: true
+            returnable: false
+            flavor: "red"
+            ingredients: "green"
+            brand: "something"
+            sensitivity: "someg else"
+            ingredient_info: "something fggs else"
+            about: "something else"
+            ratings_avg: 4
+      - loop:
+          - get:
+              url: "/api/products/9999999"
+        count: 100
+
+
+
+# ------------------------------------------------------
+# WITH A Randomly Generated Data For POSTs
+# ------------------------------------------------------
+# config:
+#   environments:
+#     staging:
+#       target: "http://localhost:3002"
+#       processor: "./my-function.js"
+#       tls:
+#         rejectUnauthorized: false
+#       phases:
+#         - duration: 5
+#           arrivalRate: 1
+# scenarios:
+#   - name: "GET Requests to john-service"
+#     flow:
+#       - function: "generateRandomData"
+#       - post:
+#           url: "/api/products"
+#           json:
+#             name: "{{ name }}"
+#             price: "{{ price }}"
+#             prime: "{{ prime }}"
+#             returnable: "{{ returnable }}"
+#             flavor: "{{ flavor }}"
+#             ingredients: "{{ ingredients }}"
+#             brand: "{{ brand }}"
+#             sensitivity: "{{ sensitivity }}"
+#             ingredient_info: "{{ ingredient_info }}"
+#             about: "{{ about }}"
+#             ratings_avg: "{{ ratings_avg }}"
+
+# ------------------------------------------------------
+# PUT AND DELETE REQUESTS
+# ------------------------------------------------------
+
+    # - name: "PUT Requests to john-service"
+  #   flow:
+  #     - get:
+  #         url: "/api/products/1"
+  # - name: "DELETE Requests to john-service"
+  #   flow:
+  #     - get:
+  #         url: "/api/products/1"
+
+
+# ------------------------------------------------------
+# COMMAND TO RUN FILE
+# ------------------------------------------------------
+  # artillery run -e staging /Users/jandy/Work/sdc/john-service/my-script.yaml

@@ -2,17 +2,17 @@ const pool = require('./pgConnection.js').pool;
 
 pool.query(`CREATE TABLE
     products(
-    id INTEGER PRIMARY KEY,
-    name TEXT,
+    id SERIAL PRIMARY KEY,
+    name VARCHAR (50),
     price FLOAT,
     prime BOOLEAN,
     returnable BOOLEAN,
-    flavor TEXT,
-    ingredients TEXT,
-    brand TEXT,
-    sensitivity TEXT,
-    ingredient_info TEXT,
-    about TEXT,
+    flavor VARCHAR (25),
+    ingredients VARCHAR (25),
+    brand VARCHAR (50),
+    sensitivity VARCHAR (50),
+    ingredient_info VARCHAR (250),
+    about VARCHAR (250),
     ratings_avg FLOAT
   )`, (error, result) => {
   if (error) {
