@@ -1,0 +1,99 @@
+config:
+  environments:
+    staging:
+      target: "http://localhost:3002"
+      # processor: "./my-function.js"
+      tls:
+        rejectUnauthorized: false
+      phases:
+        - duration: 60
+          arrivalRate: 10
+scenarios:
+  - name: "GET Requests to john-service"
+    flow:
+      - get:
+          url: "/api/products/9999995"
+      - post:
+          url: "/api/products"
+          json:
+            name: "TESTHERE"
+            price: 22
+            prime: true
+            returnable: false
+            flavor: "red"
+            ingredients: "green"
+            brand: "something"
+            sensitivity: "someg else"
+            ingredient_info: "something fggs else"
+            about: "something else"
+            ratings_avg: 4
+      - loop:
+          - get:
+              url: "/api/products/9999999"
+        count: 100
+
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+
+artillery run -e staging /Users/jandy/Work/sdc/john-service/my-script.yaml
+
+----------
+TESTS
+----------
+
+***** TEST 1: duration: 60, arrivalRate: 100, count: 100, 102 *****
+
+Summary report @ 14:21:25(-0800) 2020-12-11
+  Scenarios launched:  6000
+  Scenarios completed: 6000
+  Requests completed:  612000
+  Mean response/sec: 1187.29
+  Response time (msec):
+    min: 3.4
+    max: 9467.8
+    median: 4900.2
+    p95: 5414.2
+    p99: 6701.8
+  Scenario counts:
+    GET Requests to john-service: 6000 (100%)
+  Codes:
+    200: 612000
+
+
+
+***** TEST 2: duration: 60, arrivalRate: 300, count: 1, 2 TotalRequestPerUser*****
+
+Summary report @ 14:28:54(-0800) 2020-12-11
+  Scenarios launched:  18001
+  Scenarios completed: 18001
+  Requests completed:  54003
+  Mean response/sec: 888.65
+  Response time (msec):
+    min: 0.5
+    max: 436.7
+    median: 1.6
+    p95: 28.4
+    p99: 150.8
+  Scenario counts:
+    GET Requests to john-service: 18001 (100%)
+  Codes:
+    200: 54003
+
+***** TEST 3: duration: 60, arrivalRate: 10, count: 100, 103 TotalRequestPerUser *****
+
+Summary report @ 14:35:13(-0800) 2020-12-11
+  Scenarios launched:  600
+  Scenarios completed: 600
+  Requests completed:  61200
+  Mean response/sec: 1010.4
+  Response time (msec):
+    min: 0.5
+    max: 260.1
+    median: 0.8
+    p95: 16.5
+    p99: 23.9
+  Scenario counts:
+    GET Requests to john-service: 600 (100%)
+  Codes:
+    200: 61200
