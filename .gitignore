@@ -29,4 +29,4 @@ bundle.js
 *.pem
 
 # API Keys To Ignore
-newrelic-api-key.js
+newrelicKey.js

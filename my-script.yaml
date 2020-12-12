@@ -7,7 +7,7 @@ config:
         rejectUnauthorized: false
       phases:
         - duration: 60
-          arrivalRate: 10
+          arrivalRate: 30
 scenarios:
   - name: "GET Requests to john-service"
     flow:
@@ -30,7 +30,7 @@ scenarios:
       - loop:
           - get:
               url: "/api/products/9999999"
-        count: 100
+        count: 10
 
 
 
