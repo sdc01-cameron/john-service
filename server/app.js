@@ -7,16 +7,15 @@ const selectOne = require('./pgDBSeeding/pqQueries/select1Record.js').selectOne;
 const insertOne = require('./pgDBSeeding/pqQueries/insertOneRow.js').insertOne;
 const deleteOne = require('./pgDBSeeding/pqQueries/deleteOneRow.js').deleteOne;
 const updateOne = require('./pgDBSeeding/pqQueries/updateOneRow.js').updateOne;
-const Product = require('../server/database').Product;
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use('/', express.static('public'));
 
-////////////FOR the loader io in the ec2 instance
-// app.get('/loaderio-3939c4eda17d7e54917e378b6b07c13e', (req, res) => {
-//   res.send('loaderio-3939c4eda17d7e54917e378b6b07c13e');
-// });
+
+app.get('/loaderio-3939c4eda17d7e54917e378b6b07c13e', (req, res) => {
+  res.send('loaderio-3939c4eda17d7e54917e378b6b07c13e');
+});
 
 app.get('/api/products/:id', (req, res) => {
   selectOne(req, res);
