@@ -30,3 +30,7 @@ bundle.js
 
 # API Keys To Ignore
 newrelicKey.js
+
+# CSVs to ignore
+server/pgDBSeeding/products.csv
+server/pgDBSeeding/tenproducts.csv

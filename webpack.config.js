@@ -8,6 +8,10 @@ module.exports = {
     path: path.resolve(__dirname, 'public')
   },
   target: 'node',
+  //added
+  watch: true,
+  mode: 'production',
+
   module: {
     rules: [
       {
