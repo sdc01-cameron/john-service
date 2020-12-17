@@ -14,9 +14,8 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    let id = Math.floor(Math.random() * 100) + 1;
-    // let url = window.location.pathname.split('/');
-    // let id = url.join('');
+    console.log('url: ', url);
+    let id = url.split('/')[url.split('/').length - 1] || 59;
     axios.get(`/api/products/${id}`)
       .then(res => {
         const product = res.data;
