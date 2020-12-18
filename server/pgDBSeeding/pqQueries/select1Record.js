@@ -1,19 +1,40 @@
 const pool = require('../pgConnection.js').pool;
-
+const redis = require('../../redis.config');
 
 const selectOne = (req, res) => {
   const id = req.params.id;
-
-  pool.query(`SELECT * FROM products WHERE id = ${id}`, (error, result) => {
+  redis.get(id, (error, result) => {
     if (error) {
-      console.log('error: ', error);
-      res.send('error');
-    } else {
-      console.log(`Success in Querying ${result.rows.length} with ID ${id}`);
-      console.log(result.rows);
-      res.send(result.rows[0]);
+      console.log('error in redis: ', error);
+      res.send('error in redis');
+      return;
     }
-    pool.end;
+    if (result) {
+      var resultParsed = JSON.parse(result);
+      console.log('success in pulling from redis');
+      console.log(resultParsed);
+      res.send(resultParsed);
+    } else {
+      pool.query(`SELECT * FROM products WHERE id = ${id}`, (error, result) => {
+        if (error) {
+          console.log('error in DB: ', error);
+          res.send('error in DB');
+        } else {
+          console.log(`Success In Querying ${result.rows.length} with ID ${id}`);
+          var resultStringify = JSON.stringify(result.rows[0]);
+          redis.set(id, resultStringify, (error, result) => {
+            if (error) {
+              console.log('error in redis set');
+              res.send('error in redis');
+              return;
+            }
+            console.log('added to redis');
+          });
+          res.send(result.rows[0]);
+        }
+        pool.end;
+      });
+    }
   });
 };
 
