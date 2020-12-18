@@ -2,7 +2,7 @@ const newrelic = require('newrelic');
 
 const express = require('express');
 const app = express();
-const port = 3002;
+const port = 4002;
 const selectOne = require('./pgDBSeeding/pqQueries/select1Record.js').selectOne;
 const insertOne = require('./pgDBSeeding/pqQueries/insertOneRow.js').insertOne;
 const deleteOne = require('./pgDBSeeding/pqQueries/deleteOneRow.js').deleteOne;

@@ -16,7 +16,7 @@ const Product = ({product}) => {
     setProduct(selProduct);
   }
 
-  let ratingsNum = Math.floor(Math.random() * 1000) + 1;
+  let ratingsNum = Math.floor(Math.random() * 10) + 1;
   let mainTileProduct = product;
   if (selectedProduct.name) {
     product = selectedProduct;

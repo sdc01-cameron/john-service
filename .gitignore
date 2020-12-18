@@ -30,7 +30,11 @@ bundle.js
 
 # API Keys To Ignore
 newrelicKey.js
-
 # CSVs to ignore
 server/pgDBSeeding/products.csv
 server/pgDBSeeding/tenproducts.csv
+#Additional Postgres Queries To Ignore
+server/pgDBSeeding/pqQueries/select1000000Records.js
+server/pgDBSeeding/pqQueries/select10000000Records.js
+select1000000Records.js
+select10000000Records.js

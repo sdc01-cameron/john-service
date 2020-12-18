@@ -15,7 +15,7 @@ class Tile extends React.Component {
   }
 
   componentDidMount() {
-    let randomNum = Math.floor(Math.random() * 100) + 1;
+    let randomNum = Math.floor(Math.random() * 50) + 1;
     console.log(randomNum); //JOHN
     axios.get(`/api/products/${randomNum}`)
       .then(res => {
